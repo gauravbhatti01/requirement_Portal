@@ -7,15 +7,20 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
   User,
 } from 'firebase/auth';
 import { auth } from './firebase';
+
+const googleProvider = new GoogleAuthProvider();
 
 interface AuthContextValue {
   user: User | null;
   loading: boolean;
   signUp: (email: string, password: string, name: string) => Promise<void>;
   logIn: (email: string, password: string) => Promise<void>;
+  signInWithGoogle: () => Promise<void>;
   logOut: () => Promise<void>;
   error: string | null;
   clearError: () => void;
@@ -58,14 +63,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const signInWithGoogle = async () => {
+    setError(null);
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (e: any) {
+      if (e.code !== 'auth/popup-closed-by-user') {
+        setError(friendlyError(e.code));
+      }
+      throw e;
+    }
+  };
+
   const logOut = async () => {
     await signOut(auth);
   };
 
   const clearError = () => setError(null);
 
+
   return (
-    <AuthContext.Provider value={{ user, loading, signUp, logIn, logOut, error, clearError }}>
+    <AuthContext.Provider value={{ user, loading, signUp, logIn, signInWithGoogle, logOut, error, clearError }}>
       {children}
     </AuthContext.Provider>
   );
