@@ -1,0 +1,212 @@
+.page {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Stats grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.statCard {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.statCard:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.statTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #585858;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.statIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+}
+
+.statVal {
+  font-size: 32px;
+  font-weight: 700;
+  color: #f5f5f5;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.statSub {
+  font-size: 11px;
+  color: #3a3a3a;
+}
+
+.statAccent {
+  display: none;
+}
+
+/* Card */
+.card {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #585858;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 16px;
+}
+
+/* Layout */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Activity */
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.actItem {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.actItem:last-child {
+  border-bottom: none;
+}
+
+.actDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.actMsg {
+  font-size: 13px;
+  color: #a0a0a0;
+  line-height: 1.4;
+}
+
+.actTime {
+  font-size: 11px;
+  color: #3a3a3a;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 2px;
+}
+
+/* Deadlines */
+.deadlineItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.deadlineItem:last-child {
+  border-bottom: none;
+}
+
+.deadlineName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+.deadlineClient {
+  font-size: 11px;
+  color: #3a3a3a;
+  margin-top: 2px;
+}
+
+/* Charts */
+.chartRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.chartLabel {
+  font-size: 12px;
+  color: #585858;
+  width: 84px;
+  text-align: right;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chartTrack {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.chartFill {
+  height: 100%;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+.chartVal {
+  font-size: 12px;
+  color: #585858;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 24px;
+  text-align: right;
+}
+
+/* Empty */
+.empty {
+  text-align: center;
+  padding: 28px 0;
+  color: #3a3a3a;
+  font-size: 13px;
+}

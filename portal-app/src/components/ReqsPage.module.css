@@ -1,0 +1,262 @@
+.page {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filterBar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.searchWrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #3a3a3a;
+  pointer-events: none;
+}
+
+.search {
+  width: 100%;
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 13px;
+  padding: 9px 12px 9px 36px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.15s;
+}
+
+.search:focus {
+  border-color: rgba(59,130,246,0.3);
+}
+
+.search::placeholder {
+  color: #3a3a3a;
+}
+
+.sel {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  color: #a0a0a0;
+  font-size: 13px;
+  padding: 9px 12px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.sel option {
+  background: #111;
+  color: #f5f5f5;
+}
+
+/* Table */
+.tableWrap {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 900px;
+}
+
+.table th {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #3a3a3a;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: rgba(255,255,255,0.02);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #a0a0a0;
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+.overdueRow td {
+  background: rgba(239,68,68,0.03) !important;
+}
+
+.reqTitle {
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+.sub {
+  font-size: 11px;
+  color: #3a3a3a;
+  margin-top: 2px;
+}
+
+.clientCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #60a5fa;
+  flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.clientName {
+  color: #a0a0a0;
+  white-space: nowrap;
+}
+
+.muted {
+  color: #585858 !important;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.unit {
+  font-size: 11px;
+  color: #3a3a3a;
+}
+
+.statusSel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px;
+  color: #a0a0a0;
+  font-size: 12px;
+  padding: 4px 8px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.statusSel option {
+  background: #111;
+  color: #f5f5f5;
+}
+
+.progWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progBar {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  flex: 1;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.progFill {
+  height: 100%;
+  background: #22c55e;
+  border-radius: 2px;
+}
+
+.progPct {
+  font-size: 11px;
+  color: #3a3a3a;
+  min-width: 28px;
+  text-align: right;
+}
+
+.overdueTag {
+  font-size: 9px;
+  font-weight: 700;
+  color: #ef4444;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.budget {
+  color: #585858 !important;
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actionBtn {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.04);
+  color: #585858;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.actionBtn:hover {
+  background: rgba(255,255,255,0.08);
+  color: #f5f5f5;
+}
+
+.del {
+  border-color: rgba(239,68,68,0.2);
+  color: #ef4444;
+  background: rgba(239,68,68,0.06);
+}
+
+.del:hover {
+  background: rgba(239,68,68,0.12);
+}
+
+.emptyCell {
+  text-align: center;
+  padding: 48px !important;
+  color: #3a3a3a !important;
+}

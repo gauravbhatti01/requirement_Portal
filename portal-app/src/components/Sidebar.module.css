@@ -1,0 +1,137 @@
+.sidebar {
+  width: 230px;
+  min-width: 230px;
+  background: #0a0a0a;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(168,85,247,0.3));
+  border: 1px solid rgba(59,130,246,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.logoTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f5f5f5;
+  letter-spacing: -0.03em;
+}
+
+.logoSub {
+  font-size: 10px;
+  color: #585858;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0;
+  margin-top: 1px;
+}
+
+.nav {
+  flex: 1;
+  padding: 12px 8px;
+  overflow-y: auto;
+}
+
+.navSection {
+  font-size: 9px;
+  font-weight: 600;
+  color: #3a3a3a;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 10px 10px 4px;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 10px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #585858;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+
+.navItem:hover {
+  color: #a0a0a0;
+  background: rgba(255,255,255,0.03);
+}
+
+.navItem.active {
+  color: #f5f5f5;
+}
+
+.activeIndicator {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.navIcon {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.navItem span {
+  position: relative;
+  z-index: 1;
+}
+
+.bottom {
+  padding: 14px 18px 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: #3a3a3a;
+}
+
+.statVal {
+  font-size: 12px;
+  font-weight: 600;
+  color: #585858;
+  font-family: 'JetBrains Mono', monospace;
+}

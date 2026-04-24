@@ -1,0 +1,187 @@
+.page {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.statCard {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #585858;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 8px;
+}
+
+.statVal {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.statSub {
+  font-size: 11px;
+  color: #3a3a3a;
+}
+
+.statAccent {
+  display: none;
+}
+
+.card {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #585858;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 16px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+/* Chart bars */
+.chartRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.chartLabel {
+  font-size: 12px;
+  color: #585858;
+  width: 90px;
+  text-align: right;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chartTrack {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.chartFill {
+  height: 100%;
+  border-radius: 3px;
+  opacity: 0.85;
+}
+
+.chartVal {
+  font-size: 12px;
+  color: #585858;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 30px;
+  text-align: right;
+}
+
+/* Budget chart */
+.budgetRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.budgetLabel {
+  font-size: 12px;
+  color: #585858;
+  width: 90px;
+  text-align: right;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.budgetBars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.miniTrack {
+  height: 5px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.miniFill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.budgetAmt {
+  font-size: 11px;
+  color: #3a3a3a;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 100px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.legend {
+  font-size: 11px;
+  color: #3a3a3a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.legendDot {
+  display: inline-block;
+  width: 10px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.empty {
+  text-align: center;
+  padding: 24px 0;
+  color: #3a3a3a;
+  font-size: 13px;
+}
