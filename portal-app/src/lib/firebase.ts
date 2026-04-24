@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey:            "AIzaSyAAqcFHJBJMtwkosehQOnY6BKqLJqbFhF8",
-  authDomain:        "bill-breaker-55fd2.firebaseapp.com",
-  projectId:         "bill-breaker-55fd2",
-  storageBucket:     "bill-breaker-55fd2.firebasestorage.app",
-  messagingSenderId: "514341239704",
-  appId:             "1:514341239704:web:ca56b5f207f9a2115089ed",
-  measurementId:     "G-5PH6W0YYC2",
+  apiKey:            "AIzaSyCztvWhMpuOZdQcsd1B-BmR45q2qdMxOxo",
+  authDomain:        "requirement-92cc9.firebaseapp.com",
+  projectId:         "requirement-92cc9",
+  storageBucket:     "requirement-92cc9.firebasestorage.app",
+  messagingSenderId: "267418999019",
+  appId:             "1:267418999019:web:41c72cd85b1e1df78946ae",
+  measurementId:     "G-YHVJRCYTQ4",
 };
 
 // Prevent duplicate initialization in Next.js
