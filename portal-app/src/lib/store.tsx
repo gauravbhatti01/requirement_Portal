@@ -25,7 +25,23 @@ export interface Client {
 export interface Requirement {
   id: number;
   clientId: number;
+  roleType?: 'freelancer' | 'pm';
   title: string;
+  rawInput?: string;
+  sourceType?: string;
+  extractedGoals?: string;
+  extractedScope?: string;
+  constraints?: string;
+  stakeholders?: string;
+  dependencies?: string;
+  risks?: string;
+  missingFields?: string[];
+  clarificationQuestions?: string[];
+  readinessScore?: number;
+  versions?: any[];
+  aiSuggestions?: any[];
+  userFeedbackOnSuggestions?: any[];
+  decisions?: any[];
   desc?: string;
   qty: number;
   unit?: string;
@@ -39,7 +55,9 @@ export interface Requirement {
   tags?: string;
   notes?: string;
   createdAt: string;
+  updatedAt?: string;
 }
+
 
 export interface ActivityItem {
   msg: string;
@@ -88,8 +106,20 @@ function reducer(state: AppState, action: Action): AppState {
       return { ...state, requirements: [...state.requirements, req], nextRid: state.nextRid+1,
         activity: [{ msg: `Added requirement: ${req.title}`, time: now(), id: state.nextAid }, ...state.activity].slice(0,40), nextAid: state.nextAid+1 };
     }
-    case 'UPDATE_REQ': return { ...state, requirements: state.requirements.map(r => r.id===action.payload.id ? action.payload : r),
+    case 'UPDATE_REQ': {
+      return { ...state, requirements: state.requirements.map(r => {
+        if (r.id === action.payload.id) {
+          const newReq = { ...action.payload, updatedAt: new Date().toISOString() };
+          if (r.title !== newReq.title || r.extractedScope !== newReq.extractedScope || r.rawInput !== newReq.rawInput) {
+            const { versions: _, ...oldState } = r;
+            newReq.versions = [...(r.versions || []), { timestamp: newReq.updatedAt, data: oldState }];
+          }
+          return newReq;
+        }
+        return r;
+      }),
       activity: [{ msg: `Updated: ${action.payload.title}`, time: now(), id: state.nextAid }, ...state.activity].slice(0,40), nextAid: state.nextAid+1 };
+    }
     case 'DELETE_REQ': {
       const r = state.requirements.find(x => x.id===action.id);
       return { ...state, requirements: state.requirements.filter(x => x.id!==action.id),
@@ -141,6 +171,15 @@ export function AppProvider({ children, userId }: AppProviderProps) {
   // ── Load user data from Firestore on mount ──
   useEffect(() => {
     if (!userId) return;
+    if (userId === 'guest') {
+      const local = typeof window !== 'undefined' ? localStorage.getItem('guestState') : null;
+      if (local) {
+        try { dispatch({ type: 'LOAD_STATE', payload: JSON.parse(local) }); } catch(e) {}
+      }
+      setSyncing(false);
+      initialized.current = true;
+      return;
+    }
     setSyncing(true);
     getDoc(doc(db, 'users', userId))
       .then(snap => {
@@ -159,6 +198,10 @@ export function AppProvider({ children, userId }: AppProviderProps) {
   // ── Save to Firestore whenever state changes (debounced 1.5s) ──
   useEffect(() => {
     if (!initialized.current || !userId) return;
+    if (userId === 'guest') {
+      if (typeof window !== 'undefined') localStorage.setItem('guestState', JSON.stringify(state));
+      return;
+    }
     if (saveTimer.current) clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => {
       setDoc(doc(db, 'users', userId), state, { merge: false }).catch(console.error);

@@ -158,3 +158,103 @@
   flex: 1;
   overflow-y: auto;
 }
+
+/* Verification Screen */
+.verifyPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050505;
+  padding: 20px;
+}
+
+.verifyCard {
+  width: 100%;
+  max-width: 440px;
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.verifyTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.verifyText {
+  font-size: 14px;
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.verifyText b {
+  color: #f5f5f5;
+  font-weight: 600;
+}
+
+.verifyActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.verifyBtnPrimary {
+  width: 100%;
+  padding: 13px;
+  background: #f5f5f5;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.verifyBtnPrimary:hover {
+  background: #ffffff;
+  box-shadow: 0 0 30px rgba(255,255,255,0.12);
+}
+
+.verifyBtnSecondary {
+  width: 100%;
+  padding: 13px;
+  background: rgba(255,255,255,0.05);
+  color: #e0e0e0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.verifyBtnSecondary:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.verifyBtnOutline {
+  background: none;
+  border: none;
+  color: #585858;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.15s;
+}
+
+.verifyBtnOutline:hover {
+  color: #a0a0a0;
+}

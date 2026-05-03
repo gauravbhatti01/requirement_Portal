@@ -26,7 +26,8 @@ const PAGE_TITLES: Record<Page, string> = {
 
 // ─── Auth Gate ────────────────────────────────────────────────────────────────
 function AuthGate() {
-  const { user, loading } = useAuth();
+  const { user, loading, resendVerification, reloadUser, logOut } = useAuth();
+  const [verifying, setVerifying] = useState(false);
 
   if (loading) {
     return (
@@ -43,6 +44,26 @@ function AuthGate() {
   }
 
   if (!user) return <LoginPage />;
+
+  if (!user.isAnonymous && user.uid !== 'guest' && !user.emailVerified) {
+    return (
+      <div className={styles.verifyPage}>
+        <div className={styles.verifyCard}>
+          <h2 className={styles.verifyTitle}>Verify your email</h2>
+          <p className={styles.verifyText}>We've sent a verification link to <b>{user.email}</b>. Please click the link to activate your account.</p>
+          <div className={styles.verifyActions}>
+            <button className={styles.verifyBtnPrimary} onClick={async () => { setVerifying(true); await reloadUser(); setVerifying(false); }}>
+              {verifying ? 'Checking...' : 'I have verified my email'}
+            </button>
+            <button className={styles.verifyBtnSecondary} onClick={async () => { await resendVerification(); alert('Verification email resent!'); }}>
+              Resend Email
+            </button>
+            <button className={styles.verifyBtnOutline} onClick={logOut}>Sign Out</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <AppProvider userId={user.uid}>
@@ -108,13 +129,12 @@ function AppShell() {
               </div>
             )}
 
-            {/* User badge */}
             <div className={styles.userBadge}>
               <div className={styles.userAvatar}>
-                {user?.displayName ? initials(user.displayName) : user?.email?.[0].toUpperCase()}
+                {user?.displayName ? initials(user.displayName) : (user?.email?.[0].toUpperCase() || 'A')}
               </div>
               <span className={styles.userName}>
-                {user?.displayName || user?.email?.split('@')[0]}
+                {user?.displayName || user?.email?.split('@')[0] || 'Guest User'}
               </span>
             </div>
 

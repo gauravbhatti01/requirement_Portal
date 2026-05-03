@@ -331,13 +331,43 @@
   color: #93c5fd;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   font-size: 11px;
   color: #2a2a2a;
-  margin-top: 24px;
+  margin-top: 16px;
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.04);
   line-height: 1.4;
+}
+
+/* Skip Button */
+.skipBtn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: #585858;
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.skipBtn:hover:not(:disabled) {
+  color: #a0a0a0;
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.02);
+}
+
+.skipBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

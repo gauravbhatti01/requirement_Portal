@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, EyeOff, Zap, AlertCircle, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Zap, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
 import styles from './LoginPage.module.css';
 
 export default function LoginPage() {
-  const { signUp, logIn, signInWithGoogle, error, clearError } = useAuth();
+  const { signUp, logIn, signInWithGoogle, signInAsGuest, error, clearError } = useAuth();
   const [mode, setMode]         = useState<'login' | 'signup'>('login');
   const [name, setName]         = useState('');
   const [email, setEmail]       = useState('');
@@ -154,6 +154,15 @@ export default function LoginPage() {
             </p>
           </motion.form>
         </AnimatePresence>
+
+        <button 
+          onClick={signInAsGuest} 
+          disabled={loading || googleLoading} 
+          className={styles.skipBtn}
+          type="button"
+        >
+          Skip Login <ArrowRight size={14} />
+        </button>
 
         <p className={styles.footer}>Your data is securely stored and private to your account.</p>
       </motion.div>
